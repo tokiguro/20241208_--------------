@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    header {
+        max-width: 1000px;
+        /* background-color: aqua; */
+        margin: 0 auto;
+        display: flex;
+        justify-content:space-between;
+     
+
+        .logo img{
+            width: 100%;
+            height: 50px;
+        }
+
+
+        .btn {
+            width: 50px;
+            height: 50px;
+            border: 1px;
+            background-color: gray;
+            border-radius: 5px;
+            position: relative;
+            z-index: 9999;
+        }
+
+        .btn span{
+            display: inline-block;
+            width: 50%;
+            background-color: black;
+            height: 2px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%); /*自分自身をずらす*/
+
+        }
+
+        .btn span:nth-last-of-type(1){
+            top: 14px;
+        }
+        .btn span:nth-last-of-type(1){
+            top: 22px;
+        }
+        .btn span:nth-last-of-type(1){
+            top: 30px;
+        }
+
+        .menu {
+            width: 100%;
+            height: 60vh;
+            background-color: rgba(139, 246, 246);
+            position: fixed;
+            top: -100%;
+            left: 0;
+            z-index: 999;
+            transition: all 0.6s ease;
+        }
+
+        .menu ul li a {
+            display: inline-block;
+            padding: 10px;
+            text-decoration: none;
+            color:gray
+        }
+
+
+        .hide {
+            top: 0;
+        }
+
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="./img/icon-128x128.png" alt="" /></div>
+        <div class="btn"><span></span><span></span><span></span></div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#">top</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">content</a></li>
+                <li><a href="#">test1</a></li>
+                <li><a href="#">test2</a></li>
+                <li><a href="#">test3</a></li>
+            </ul>
+    </header>
+    
+
+    <script>
+        const btn = document.querySelector(".btn");
+        const menu = document.querySelector(".menu")
+        btn.addEventListener("click",() => {
+            //classにis-activeがあったら削除。なかったら追加
+            // btn.classList.toggle("is-active"); 
+
+            // toggle_メソッド…hideがあると削除される仕組み（よく使う）
+            btn.classList.toggle("hide"); 
+            menu.classList.toggle("hide");
+            
+        });
+
+    </script>
+</body>
+</html>
